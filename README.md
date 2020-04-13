@@ -20,11 +20,15 @@ To set screen orientation when running the graphical desktop, select the `Screen
 
 To set screen orientation when in console mode, you will need to edit the kernel command line to pass the required orientation to the system.
 
-```sudo nano /boot/cmdline.txt```
+```
+sudo nano /boot/cmdline.txt
+```
 
 To rotate by 90 degrees clockwise, add the following to the cmdline, making sure everything is on the same line, do not add any carriage returns. Possible rotation values are 0, 90, 180 and 270.
 
-```video=DSI-1:800x480@60,rotate=90```
+```
+video=DSI-1:800x480@60,rotate=90
+```
 
 NOTE: In console mode it is not possible to rotate the DSI display separately to the HDMI display, so if you have both attached they must both be set to the same value.
 
@@ -33,7 +37,9 @@ Legacy graphics mode is used by default on all Raspberry Pi models prior to the 
 
 To flip the display, add the following line to the file ``/boot/config.txt``:
 
-``lcd_rotate=2``
+``
+lcd_rotate=2
+``
 
 This will vertically flip the LCD and the touch screen, compensating for the physical orientation of the display.
 
@@ -55,7 +61,9 @@ Note that the 90 and 270 degree rotation options require additional memory on th
 ## Touchscreen orientation
 Additionally, you have the option to change the rotation of the touchscreen independently of the display itself by adding a `dtoverlay` instruction in `config.txt`, for example:
 
-```dtoverlay=rpi-ft5406,touchscreen-swapped-x-y=1,touchscreen-inverted-x=1```
+```
+dtoverlay=rpi-ft5406,touchscreen-swapped-x-y=1,touchscreen-inverted-x=1
+```
 
 The options for the touchscreen are:
 
